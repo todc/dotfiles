@@ -4,7 +4,7 @@ else
   export PS1='%3~$(git_info_for_prompt)%# '
 fi
 
-export EDITOR='mate_wait'
+export EDITOR='vim'
 export PATH="$HOME/bin:$HOME/.bin:/usr/local/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
@@ -44,3 +44,25 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char 
+
+precmd() {
+    # How many characters of the $PWD should be kept
+    local pwdmaxlen=25
+    # Indicate that there has been dir truncation
+    local trunc_symbol=".."
+    local dir=${PWD##*/}
+    pwdmaxlen=$(( ( pwdmaxlen < ${#dir} ) ? ${#dir} : pwdmaxlen ))
+    NEW_PWD=${PWD/$HOME/\~}
+    local pwdoffset=$(( ${#NEW_PWD} - pwdmaxlen ))
+    if [[ ${pwdoffset} -gt "0" ]]
+        then
+        NEW_PWD=${NEW_PWD[$pwdoffset,${#NEW_PWD}]}
+        NEW_PWD=${trunc_symbol}/${NEW_PWD#*/}
+    fi
+}
+      
+      #UC=$Y                 # user's color
+#        [ $UID -eq "0" ] && UC=$R   # root's color
+
+PROMPT=$'%F{green}[%*][%F{yellow}%m%F{green}:%F{yellow}${NEW_PWD}%F{green}]\$ %F{default}'
+
