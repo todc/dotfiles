@@ -21,7 +21,7 @@ let g:colors_name = "railscasts"
 " Tan          #FFC66D
 " Red          #DA4938 
 
-hi Normal     guifg=#E6E1DC guibg=#232323
+hi Normal     guifg=#E6E1DC guibg=#171717
 hi Cursor     guibg=#FFFFFF
 hi CursorLine guibg=#333435
 hi LineNr     guifg=#666666
@@ -33,7 +33,7 @@ hi Error      guifg=#FFFFFF guibg=#990000
 hi MatchParen guifg=NONE    guibg=#131313
 hi Title      guifg=#E6E1DC
 
-hi Comment    guifg=#BC9357 guibg=NONE     gui=italic
+hi Comment    guifg=#787878 guibg=NONE     gui=italic
 hi! link Todo Comment
 
 hi String     guifg=#A5C160
