@@ -10,8 +10,10 @@ alias ll="ls -l"
 alias la='ls -A'
 
 # git
+alias g='git'
 alias ga='nocorrect noglob git add'
 alias gl='git pull'
+alias glg='git lg'
 alias gp='git push'
 alias gd='git diff'
 alias gc='git commit'

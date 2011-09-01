@@ -64,5 +64,5 @@ precmd() {
       #UC=$Y                 # user's color
 #        [ $UID -eq "0" ] && UC=$R   # root's color
 
-PROMPT=$'%F{green}[%*][%F{yellow}%m%F{green}:%F{yellow}${NEW_PWD}%F{green}]\$ %F{default}'
+PROMPT=$'%F{green}%m%F{default}:${NEW_PWD}%F{yellow} \$ %F{default}'
 
